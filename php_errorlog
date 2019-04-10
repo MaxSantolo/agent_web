@@ -1,0 +1,125 @@
+[01-Aug-2018 03:06:20 CST6CDT] PHP Fatal error:  require_once(): Failed opening required 'vendor/autoload.php' (include_path='.:/usr/local/php70/pear') in /home/pickcent/public_html/agent/index.php on line 2
+[01-Aug-2018 04:49:15 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined method SendinBlue\Client\Api\ContactsApi::getContactCampaignStats() in /home/pickcent/public_html/agent/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/index.php on line 17
+[01-Aug-2018 05:12:23 CST6CDT] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/pickcent/public_html/agent/index.php on line 23
+[01-Aug-2018 05:14:32 CST6CDT] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/pickcent/public_html/agent/index.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/index.php on line 23
+[01-Aug-2018 05:15:16 CST6CDT] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/pickcent/public_html/agent/index.php on line 23
+[01-Aug-2018 08:27:01 CST6CDT] PHP Parse error:  syntax error, unexpected ')' in /home/pickcent/public_html/agent/add_campaigns.php on line 27
+[02-Aug-2018 05:13:29 CST6CDT] PHP Parse error:  syntax error, unexpected 'print_r' (T_STRING) in /home/pickcent/public_html/agent/add_users.php on line 22
+[02-Aug-2018 14:45:38 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to undefined function vasr_dump() in /home/pickcent/public_html/agent/add_user_states.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_states.php on line 24
+[02-Aug-2018 15:04:25 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to undefined function var_dunp() in /home/pickcent/public_html/agent/add_user_states.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_states.php on line 29
+[02-Aug-2018 15:10:08 Europe/Rome] PHP Fatal error:  Uncaught Error: Cannot use object of type DateTime as array in /home/pickcent/public_html/agent/add_user_states.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_states.php on line 31
+[02-Aug-2018 15:11:14 Europe/Rome] PHP Fatal error:  Uncaught Error: Cannot use object of type DateTime as array in /home/pickcent/public_html/agent/add_user_states.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_states.php on line 31
+[02-Aug-2018 15:57:02 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home/pickcent/public_html/agent/add_user_states.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_states.php on line 18
+[02-Aug-2018 16:09:47 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch() in /home/pickcent/public_html/agent/add_user_states.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_states.php on line 20
+[03-Aug-2018 12:38:58 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_states.php:37
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_states.php on line 37
+[03-Aug-2018 12:51:51 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_states.php:37
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_states.php on line 37
+[03-Aug-2018 12:58:23 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_states.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_states.php on line 38
+[03-Aug-2018 15:02:24 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateclick.php:37
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateclick.php on line 37
+[03-Aug-2018 15:15:56 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 40
+[03-Aug-2018 15:20:35 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 40
+[03-Aug-2018 15:23:41 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 40
+[03-Aug-2018 15:33:52 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 41
+[03-Aug-2018 16:13:23 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 42
+[03-Aug-2018 16:15:54 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 42
+[03-Aug-2018 16:16:03 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 42
+[03-Aug-2018 16:16:21 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 42
+[03-Aug-2018 16:18:06 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 42
+[03-Aug-2018 16:18:46 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 42
+[03-Aug-2018 16:22:04 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 42
+[03-Aug-2018 16:23:25 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateoptout.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateoptout.php on line 42
+[06-Aug-2018 11:04:55 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on string in /home/pickcent/public_html/agent/add_users.php:36
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_users.php on line 36
+[06-Aug-2018 13:07:44 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateclick.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateclick.php on line 40
+[06-Aug-2018 14:33:34 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /home/pickcent/public_html/agent/add_user_stateclick.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateclick.php on line 40
+[08-Aug-2018 15:43:00 Europe/Rome] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/pickcent/public_html/agent/test.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/test.php on line 26
+[11-Sep-2018 12:13:21 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/pickcent/public_html/agent/add_user_stateclick.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateclick.php on line 27
+[11-Sep-2018 14:38:54 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on boolean in /home/pickcent/public_html/agent/add_user_stateclick.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/pickcent/public_html/agent/add_user_stateclick.php on line 27
