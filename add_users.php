@@ -1,22 +1,38 @@
 <?php 
 require_once("vendor/autoload.php");
 include "tech/connect.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/class/PHPMailerAutoload.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/classes/Mail.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/classes/Log.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/classes/PickLog.php";
 
-// Configure API key authorization: api-key
 $config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', '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');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api-key', 'Bearer');
-
 $apiInstance = new SendinBlue\Client\Api\ContactsApi (
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
+
     new GuzzleHttp\Client(),
     $config
 );
 
-$conn->query("TRUNCATE TABLE email_check"); //svuoto tabella delle mail da controllare
-$conn->query("TRUNCATE TABLE email_check_blacklisted"); //svuoto tabella dei disiscritti
+$mail = new Mail();
+$plog = new PickLog();
+$msg = "";
+$errormsg = "";
 
+$sqlTruncEmailCheck = "TRUNCATE TABLE email_check";
+$conn->query($sqlTruncEmailCheck); //svuoto tabella delle mail da controllare
+
+if ($conn->error) $errormsg = "Impossibile eseguire la query: " . $sqlTruncEmailCheck . " - Errore: " . $conn->error . PHP_EOL;
+else {
+    $msg = "Eseguita la Q: " . $sqlTruncEmailCheck . " - Righe: " . $conn->affected_rows . PHP_EOL;
+}
+
+$sqlTruncEmailCheckBlacklisted = "TRUNCATE TABLE email_check_blacklisted";
+$conn->query($sqlTruncEmailCheckBlacklisted); //svuoto tabella dei disiscritti
+
+if ($conn->error) $errormsg = "Impossibile eseguire la query: " . $sqlTruncEmailCheckBlacklisted . " - Errore: " . $conn->error . PHP_EOL;
+else {
+    $msg .= "Eseguita la Q: " . $sqlTruncEmailCheckBlacklisted . " - Righe: " . $conn->affected_rows . PHP_EOL;
+}
 
 try {
     $quanti = $apiInstance->getContacts()->getCount();
@@ -29,29 +45,47 @@ try {
 
         for ($i=0;$i<1000;$i++) {
 
-            $add_mail = $result[$i]["email"];
-            $add_optout = $result[$i]["emailBlacklisted"];
+            $add_mail = str_replace("'", '', $result[$i]["email"]);
+            $add_optout = str_replace("'", '', $result[$i]["emailBlacklisted"]);
             $add_date = substr($result[$i]["modifiedAt"],0,10);
-
-            //print_r($add_optout."<BR>");
 
             if ((strpos($add_mail, 'mailin-sms') === false) and ($add_mail != NULL) and ($add_optout == NULL)) {
 
-                $conn->query("INSERT INTO email_check (email, status, mod_date) VALUES ('".$add_mail."', 'optin', '".$add_date."')");
+                $sqlInsertEmailCheck = "INSERT INTO email_check (email, status, mod_date) VALUES ('".$add_mail."', 'optin', '".$add_date."')";
+                $conn->query($sqlInsertEmailCheck);
 
-            }
+                if ($conn->error) $errormsg = "Impossibile eseguire la query: " . $sqlInsertEmailCheck . " - Errore: " . $conn->error . PHP_EOL;
+                            }
 
             if ((strpos($add_mail, 'mailin-sms') === false) and ($add_mail != NULL) and ($add_optout != NULL))
-                {  $conn->query("INSERT INTO email_check_blacklisted (email, status, optout_date) VALUES ('".$add_mail."', 'optout', '".$add_date."')");
+                {
+                    $sqlInsertEmailCheckBlacklisted = "INSERT INTO email_check_blacklisted (email, status, optout_date) VALUES ('".$add_mail."', 'optout', '".$add_date."')";
+                    $conn->query($sqlInsertEmailCheckBlacklisted);
 
-                //print_r("INSERT INTO email_check_blacklisted (email, status, optout_date) VALUES ('".$add_mail."', 'optout', '".$add_date."')"."<BR>");
+                    if ($conn->error) $errormsg = "Impossibile eseguire la query: " . $sqlInsertEmailCheckBlacklisted . " - Errore: " . $conn->error . PHP_EOL;
+
                 }
 
         }
     }
 
+    $msg .= "Effettuati {$quanti} inserimenti nelle tabelle troncate";
 
 } catch (Exception $e) {
-    echo 'Exception when calling AccountApi->getAccount: ', $e->getMessage(), PHP_EOL;
+    $errormsg .= "Errore di chiamata della API si SendinBlue AccountApi->getAccount: " . $e->getMessage();
+}
+
+//log ed email errore
+
+if ($errormsg == "") {
+
+    Log::wLog("Elenchi di email iscritte al sito rigenerati. Totale: {$quanti} inserimenti.");
+    $plog->sendLog(array("app"=>"AGENT","content"=>$msg,"action"=>"NEWSLETTER_CRM_SENDINBLUE"));
+
+} else {
+
+    $smail = $mail->sendErrorEmail($errormsg,"AZN: NEWSLETTER_SENDINBLUE");
+    Log::wLog($errormsg);
+    $plog->sendLog(array("app"=>"AGENT","content"=>$errormsg,"action"=>"NEWSLETTER_CRM_SENDINBLUE"));
 }
 

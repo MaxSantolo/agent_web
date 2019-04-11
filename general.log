@@ -1,0 +1,8 @@
+11-04-2019 15:37:27->Evento: Impossibile eseguire la query: INSERT INTO email_check_blacklisted (email, status, optout_date) VALUES ('silvia.d'alvano@soitec.com', 'optout', '2018-06-26') - Errore: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'alvano@soitec.com', 'optout', '2018-06-26')' at line 1
+ - Agent System
+11-04-2019 16:36:01->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8411 inserimenti. - Agent System
+11-04-2019 16:36:31->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+11-04-2019 16:37:01->Evento: Errore di chiamata della API si SendinBlue AccountApi->createContact: [404] Client error: `POST https://api.sendinblue.com/v3/contacts` resulted in a `404 Not Found` response:
+{"code":"document_not_found","message":"Contact does not exist"}
+ - Agent System
+11-04-2019 16:38:35->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8411 inserimenti. - Agent System

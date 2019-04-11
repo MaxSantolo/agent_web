@@ -1,6 +1,11 @@
 <?php 
+
 require_once("vendor/autoload.php");
 include "tech/connect.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/class/PHPMailerAutoload.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/classes/Mail.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/classes/Log.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/classes/PickLog.php";
 
 // Configure API key authorization: api-key
 $config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', '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');
@@ -14,7 +19,19 @@ $apiInstance = new SendinBlue\Client\Api\ContactsApi (
     $config
 );
 
-$conn->query("TRUNCATE TABLE sms_subs");
+
+echo $_SERVER['DOCUMENT_ROOT'];
+
+
+
+echo "<br>";
+$plog::sendLog(array("app"=>"agent","content"=>"test","action"=>"NEWSLETTER_CRM_SENDINBLUE"));
+
+
+
+
+
+/*$conn->query("TRUNCATE TABLE sms_subs");
 
 try {
 
@@ -24,11 +41,11 @@ $quanti = count($result);
     for ($i=0;$i<$quanti;++$i) {
 
         
-        $add_mail = $result[$i]['email'];
-        $sms_optout = $result[$i]['smsBlacklisted'];
-        $add_sms = $result[$i]['attributes']->SMS;
-        $add_nome = $result[$i]['attributes']->NOME;
-        $add_cognome = $result[$i]['attributes']->SURNAME;
+        echo $add_mail = $result[$i]['email'];
+        echo $sms_optout = $result[$i]['smsBlacklisted'];
+        echo $add_sms = $result[$i]['attributes']->SMS;
+        echo $add_nome = $result[$i]['attributes']->NOME;
+        echo $add_cognome = $result[$i]['attributes']->SURNAME;
 
         $conn->query("INSERT INTO sms_subs (email, smsbl, nome, cognome, SMS) VALUES ('".$add_mail."', '".$add_optout."', '".$add_nome."', '".$add_cognome."', '".$add_sms."')");
 
@@ -38,5 +55,5 @@ $quanti = count($result);
 
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->getAccount: ', $e->getMessage(), PHP_EOL;
-}
+}*/
 

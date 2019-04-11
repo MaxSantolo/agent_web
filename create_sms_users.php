@@ -1,21 +1,32 @@
-<?php 
+<?php
 require_once("vendor/autoload.php");
 include "tech/connect.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/class/PHPMailerAutoload.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/classes/Mail.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/classes/Log.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/tech/classes/PickLog.php";
 
-// Configure API key authorization: api-key
 $config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', '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');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api-key', 'Bearer');
-
 $apiInstance = new SendinBlue\Client\Api\ContactsApi (
-// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-// This is optional, `GuzzleHttp\Client` will be used as default.
+
     new GuzzleHttp\Client(),
     $config
 );
 
+$mail = new Mail();
+$plog = new PickLog();
+$msg = "";
+$errormsg = "";
+
 try {
-    $upd_list = $conn->query("SELECT * FROM sms_subs WHERE to_add = '1' AND SMS != ''");
+
+    $sqlSMSSubs = "SELECT * FROM sms_subs WHERE to_add = '1' AND SMS != ''";
+    $upd_list = $conn->query($sqlSMSSubs);
+
+    if ($conn->error) $errormsg = "Impossibile eseguire la query: " . $sqlSMSSubs . " - Errore: " . $conn->error . PHP_EOL;
+    else {
+        $msg = "Eseguita la Q: " . $sqlSMSSubs . " - Righe: " . $conn->affected_rows . PHP_EOL;
+    }
 
 
     while ($upd_list_data = $upd_list->fetch_assoc()) {
@@ -36,10 +47,20 @@ try {
 
     }
 
-
-
-
 } catch (Exception $e) {
-    echo 'Exception when calling AccountApi->getAccount: ', $e->getMessage(), PHP_EOL;
+    $errormsg .= "Errore di chiamata della API si SendinBlue AccountApi->createContact: " . $e->getMessage();
 }
 
+//log ed email errore
+
+if ($errormsg == "") {
+
+    Log::wLog("Contatti SMS aggiunti.");
+    $plog->sendLog(array("app"=>"AGENT","content"=>$msg,"action"=>"SMS_CRM_SENDINBLUE"));
+
+} else {
+
+    $smail = $mail->sendErrorEmail($errormsg,"AZN: SMS_SENDINBLUE");
+    Log::wLog($errormsg);
+    $plog->sendLog(array("app"=>"AGENT","content"=>$errormsg,"action"=>"SMS_CRM_SENDINBLUE"));
+}
