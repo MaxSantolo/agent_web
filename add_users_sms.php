@@ -19,7 +19,7 @@ $msg = "";
 $errormsg = "";
 
 $sqlTruncSMSSub = "TRUNCATE TABLE sms_sub";
-$conn->query($sqlTruncEmailCheck); //svuoto tabella delle mail da controllare
+$conn->query($sqlTruncSMSSub); //svuoto tabella delle mail da controllare
 
 if ($conn->error) $errormsg = "Impossibile eseguire la query: " . $sqlTruncSMSSub . " - Errore: " . $conn->error . PHP_EOL;
 else {
@@ -57,13 +57,18 @@ $quanti = count($result);
 
 if ($errormsg == "") {
 
+
+    $msg = json_encode($msg);
     Log::wLog("Elenchi di numeri di telefono rigenerati. Totale: {$quanti} inserimenti.");
-    $plog->sendLog(array("app"=>"AGENT","content"=>$msg,"action"=>"SMS_CRM_SENDINBLUE"));
+    $url = "?app=AGENT&content={$msg}&action=SMS_CRM_SENDINBLUE";
 
 } else {
 
+    $errormsg = json_encode($errormsg);
     $smail = $mail->sendErrorEmail($errormsg,"AZN: SMS_SENDINBLUE");
     Log::wLog($errormsg);
-    $plog->sendLog(array("app"=>"AGENT","content"=>$errormsg,"action"=>"SMS_CRM_SENDINBLUE"));
+    $url = "?app=AGENT&content={$errormsg}&action=SMS_CRM_SENDINBLUE";
+
 }
 
+header("Location: http://213.215.209.158:97/API/create_log.php".$url);

@@ -51,13 +51,20 @@ ACK:
         $curlSES=curl_init();
 
         curl_setopt($curlSES,CURLOPT_URL,"http://213.215.209.158:97/API/create_log.php");
+        curl_setopt($curlSES, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curlSES,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($curlSES,CURLOPT_HEADER, false);
         curl_setopt($curlSES, CURLOPT_POST, true);
         curl_setopt($curlSES, CURLOPT_POSTFIELDS,$params);
-        curl_setopt($curlSES, CURLOPT_CONNECTTIMEOUT,10);
-        curl_setopt($curlSES, CURLOPT_TIMEOUT,30);
-        $return = curl_exec($curlSES);
+        curl_setopt($curlSES, CURLOPT_CONNECTTIMEOUT,1500000000);
+        curl_setopt($curlSES, CURLOPT_TIMEOUT,15000000000);
+
+        if (curl_exec($curlSES) === FALSE) {
+            die("Curl Failed: " . curl_error($curlSES));
+        } else {
+            $return = curl_exec($curlSES);
+        }
+
         curl_close($curlSES);
 
         return $return;

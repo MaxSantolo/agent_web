@@ -20,12 +20,15 @@ $apiInstance = new SendinBlue\Client\Api\ContactsApi (
 );
 
 
-echo $_SERVER['DOCUMENT_ROOT'];
+//echo phpinfo();
 
+//$plog = new PickLog();
 
+//echo $return = $plog->sendLog(array("app"=>"AGENT","description"=>"pirulo","content"=>"paperino"));
 
-echo "<br>";
-$plog::sendLog(array("app"=>"agent","content"=>"test","action"=>"NEWSLETTER_CRM_SENDINBLUE"));
+$url = "http://213.215.209.158:97/";
+header("Location: {$url}");
+
 
 
 

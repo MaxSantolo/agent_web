@@ -79,13 +79,17 @@ try {
 
 if ($errormsg == "") {
 
+    $msg = json_encode($msg);
     Log::wLog("Elenchi di email iscritte al sito rigenerati. Totale: {$quanti} inserimenti.");
-    $plog->sendLog(array("app"=>"AGENT","content"=>$msg,"action"=>"NEWSLETTER_CRM_SENDINBLUE"));
+    $url = "?app=AGENT&content={$msg}&action=NEWSLETTER_CRM_SENDINBLUE";
+    //$plog->sendLog(array("app"=>"AGENT","content"=>$msg,"action"=>"NEWSLETTER_CRM_SENDINBLUE"));
 
 } else {
 
+    $errormsg = json_encode($errormsg);
     $smail = $mail->sendErrorEmail($errormsg,"AZN: NEWSLETTER_SENDINBLUE");
     Log::wLog($errormsg);
-    $plog->sendLog(array("app"=>"AGENT","content"=>$errormsg,"action"=>"NEWSLETTER_CRM_SENDINBLUE"));
+    $url = "?app=AGENT&content={$errormsg}&action=NEWSLETTER_CRM_SENDINBLUE";
 }
 
+header("Location: http://213.215.209.158:97/API/create_log.php".$url);

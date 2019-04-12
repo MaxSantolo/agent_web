@@ -55,12 +55,16 @@ try {
 
 if ($errormsg == "") {
 
+    $msg = json_encode($msg);
     Log::wLog("Contatti SMS aggiunti.");
-    $plog->sendLog(array("app"=>"AGENT","content"=>$msg,"action"=>"SMS_CRM_SENDINBLUE"));
+    $url = "?app=AGENT&content={$msg}&action=SMS_CRM_SENDINBLUE";
 
 } else {
 
+    $errormsg = json_encode($errormsg);
     $smail = $mail->sendErrorEmail($errormsg,"AZN: SMS_SENDINBLUE");
     Log::wLog($errormsg);
-    $plog->sendLog(array("app"=>"AGENT","content"=>$errormsg,"action"=>"SMS_CRM_SENDINBLUE"));
+    $url = "?app=AGENT&content={$errormsg}&action=SMS_CRM_SENDINBLUE";
 }
+
+header("Location: http://213.215.209.158:97/API/create_log.php".$url);
