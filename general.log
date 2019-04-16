@@ -6,3 +6,46 @@
 {"code":"document_not_found","message":"Contact does not exist"}
  - Agent System
 11-04-2019 16:38:35->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8411 inserimenti. - Agent System
+12-04-2019 00:01:03->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+12-04-2019 01:15:02->Evento: Contatti SMS aggiunti. - Agent System
+12-04-2019 01:30:08->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8413 inserimenti. - Agent System
+12-04-2019 10:03:24->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+12-04-2019 10:04:48->Evento: Contatti SMS aggiunti. - Agent System
+12-04-2019 10:05:45->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8413 inserimenti. - Agent System
+12-04-2019 10:19:22->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+12-04-2019 10:27:43->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+12-04-2019 10:29:30->Evento: Contatti SMS aggiunti. - Agent System
+12-04-2019 12:16:58->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8413 inserimenti. - Agent System
+12-04-2019 12:21:20->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8413 inserimenti. - Agent System
+12-04-2019 12:25:03->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8413 inserimenti. - Agent System
+12-04-2019 12:30:04->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8413 inserimenti. - Agent System
+13-04-2019 00:01:05->Evento: "Impossibile eseguire la query: TRUNCATE TABLE sms_sub - Errore: Table 'pickcent_agentcrm.sms_sub' doesn't exist\n" - Agent System
+13-04-2019 01:15:02->Evento: Contatti SMS aggiunti. - Agent System
+13-04-2019 01:30:07->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8414 inserimenti. - Agent System
+14-04-2019 00:01:05->Evento: "Impossibile eseguire la query: TRUNCATE TABLE sms_sub - Errore: Table 'pickcent_agentcrm.sms_sub' doesn't exist\n" - Agent System
+14-04-2019 01:15:01->Evento: Contatti SMS aggiunti. - Agent System
+14-04-2019 01:30:08->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8414 inserimenti. - Agent System
+15-04-2019 00:01:04->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+15-04-2019 01:15:07->Evento: "Errore di chiamata della API si SendinBlue AccountApi->createContact: [404] Client error: `POST https:\/\/api.sendinblue.com\/v3\/contacts` resulted in a `404 Not Found` response:\n{\"code\":\"document_not_found\",\"message\":\"Contact does not exist\"}\n" - Agent System
+15-04-2019 01:30:08->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8414 inserimenti. - Agent System
+16-04-2019 00:01:02->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+16-04-2019 01:15:08->Evento: "Errore di chiamata della API si SendinBlue AccountApi->createContact: [404] Client error: `POST https:\/\/api.sendinblue.com\/v3\/contacts` resulted in a `404 Not Found` response:\n{\"code\":\"document_not_found\",\"message\":\"Contact does not exist\"}\n" - Agent System
+16-04-2019 01:30:07->Evento: Elenchi di email iscritte al sito rigenerati. Totale: 8414 inserimenti. - Agent System
+16-04-2019 08:29:18->Evento: "Errore di chiamata della API si SendinBlue AccountApi->createContact: [404] Client error: `POST https:\/\/api.sendinblue.com\/v3\/contacts` resulted in a `404 Not Found` response:\n{\"code\":\"document_not_found\",\"message\":\"Contact does not exist\"}\n" - Agent System
+16-04-2019 08:31:36->Evento: "Errore di chiamata della API si SendinBlue AccountApi->createContact: [404] Client error: `POST https:\/\/api.sendinblue.com\/v3\/contacts` resulted in a `404 Not Found` response:\n{\"code\":\"document_not_found\",\"message\":\"Contact does not exist\"}\n" - Agent System
+16-04-2019 08:45:05->Evento: "Errore di chiamata della API si SendinBlue AccountApi->createContact: [404] Client error: `POST https:\/\/api.sendinblue.com\/v3\/contacts` resulted in a `404 Not Found` response:\n{\"code\":\"document_not_found\",\"message\":\"Contact does not exist\"}\n" - Agent System
+16-04-2019 09:04:08->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+16-04-2019 09:12:04->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+16-04-2019 09:17:30->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+16-04-2019 09:18:26->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+16-04-2019 09:21:00->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+16-04-2019 09:34:32->Evento: Elenchi di numeri di telefono rigenerati. Totale: 50 inserimenti. - Agent System
+16-04-2019 09:46:08->Evento: "Errore di chiamata della API si SendinBlue AccountApi->getContactsFromList: invalid value for \"$limit\" when calling ContactsApi.getContactsFromList, must be smaller than or equal to 500." - Agent System
+16-04-2019 09:46:44->Evento: "Errore di chiamata della API si SendinBlue AccountApi->getContactsFromList: invalid value for \"$limit\" when calling ContactsApi.getContactsFromList, must be smaller than or equal to 500." - Agent System
+16-04-2019 09:47:06->Evento: "Errore di chiamata della API si SendinBlue AccountApi->getContactsFromList: [400] Client error: `GET https:\/\/api.sendinblue.com\/v3\/contacts\/lists\/14\/contacts?modifiedSince=&limit=500&offset=0` resulted in a `400 Bad Request` response:\n{\"code\":\"missing_parameter\",\"message\":\"modifiedSince is missing\"}\n" - Agent System
+16-04-2019 09:47:42->Evento: "Errore di chiamata della API si SendinBlue AccountApi->getContactsFromList: [400] Client error: `GET https:\/\/api.sendinblue.com\/v3\/contacts\/lists\/14\/contacts?modifiedSince=2000-01-01&limit=500&offset=0` resulted in a `400 Bad Request` response:\n{\"code\":\"invalid_parameter\",\"message\":\"Invalid date-time filter\"}\n" - Agent System
+16-04-2019 09:49:45->Evento: Elenchi di numeri di telefono rigenerati. Totale: 88 inserimenti. - Agent System
+16-04-2019 09:52:49->Evento: Contatti SMS aggiunti. - Agent System
+16-04-2019 09:56:45->Evento: Elenchi di numeri di telefono rigenerati. Totale: 96 inserimenti. - Agent System
+16-04-2019 09:57:04->Evento: Elenchi di numeri di telefono rigenerati. Totale: 96 inserimenti. - Agent System
+16-04-2019 10:00:16->Evento: Elenchi di numeri di telefono rigenerati. Totale: 96 inserimenti. - Agent System

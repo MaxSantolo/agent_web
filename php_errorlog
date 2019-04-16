@@ -123,3 +123,7 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/pickcent/public_html/agent/add_user_stateclick.php on line 27
+[12-Apr-2019 01:35:01 CST6CDT] PHP Deprecated:  Non-static method PickLog::sendLog() should not be called statically in /home/pickcent/public_html/agent/test.php on line 28
+[16-Apr-2019 01:43:34 CST6CDT] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting identifier (T_STRING) in /home/pickcent/public_html/agent/tech/classes/Mail.php on line 53
+[16-Apr-2019 01:44:36 CST6CDT] PHP Parse error:  syntax error, unexpected '*', expecting identifier (T_STRING) in /home/pickcent/public_html/agent/tech/classes/Mail.php on line 53
+[16-Apr-2019 02:33:57 CST6CDT] PHP Parse error:  syntax error, unexpected '/', expecting end of file in /home/pickcent/public_html/agent/add_users_sms.php on line 24

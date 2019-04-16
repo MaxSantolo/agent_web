@@ -18,7 +18,7 @@ $plog = new PickLog();
 $msg = "";
 $errormsg = "";
 
-$sqlTruncSMSSub = "TRUNCATE TABLE sms_sub";
+$sqlTruncSMSSub = "TRUNCATE TABLE sms_subs";
 $conn->query($sqlTruncSMSSub); //svuoto tabella delle mail da controllare
 
 if ($conn->error) $errormsg = "Impossibile eseguire la query: " . $sqlTruncSMSSub . " - Errore: " . $conn->error . PHP_EOL;
@@ -28,29 +28,39 @@ else {
 
 try {
 
-$result = $apiInstance->getContactsFromList(14)->getContacts();
-$quanti = count($result);
+// $result = $apiInstance->getContactsFromList(14,"2000-01-01T19:20:30+01:00",500)->getContacts();
 
-    for ($i=0;$i<$quanti;++$i) {
+$quanti = $apiInstance->getContactsFromList(14)->getCount();
+$volte = ($quanti / 500) + 1;
 
-        
-        $add_mail = str_replace("'", '', $result[$i]['email']);
-        $sms_optout = $result[$i]['smsBlacklisted'];
-        $add_sms = $result[$i]['attributes']->SMS;
-        $add_nome = $result[$i]['attributes']->NOME;
-        $add_cognome = $result[$i]['attributes']->SURNAME;
+//$quanti = count($result);
 
-        $sqlInsertSMSSub = "INSERT INTO sms_subs (email, smsbl, nome, cognome, SMS) VALUES ('".$add_mail."', '".$add_optout."', '".$add_nome."', '".$add_cognome."', '".$add_sms."')";
-        $conn->query($sqlInsertSMSSub);
+    for ($c=0;$c<=$volte;$c++) {
 
-        if ($conn->error) $errormsg = "Impossibile eseguire la query: " . $sqlInsertEmailCheck . " - Errore: " . $conn->error . PHP_EOL;
-
+		$result = $apiInstance->getContactsFromList(14,"2000-01-01T19:20:30+01:00",500,$c*500)->getContacts();
+	
+	    for ($i=0;$i<$quanti;++$i) {
+	
+	        
+	        $add_mail = str_replace("'", '', $result[$i]['email']);
+	        $sms_optout = $result[$i]['smsBlacklisted'];
+	        $add_sms = $result[$i]['attributes']->SMS;
+	        $add_nome = $result[$i]['attributes']->NOME;
+	        $add_cognome = $result[$i]['attributes']->SURNAME;
+	
+	        $sqlInsertSMSSub = "INSERT INTO sms_subs (email, smsbl, nome, cognome, SMS) VALUES ('".$add_mail."', '".$add_optout."', '".$add_nome."', '".$add_cognome."', '".$add_sms."')";
+	        $conn->query($sqlInsertSMSSub);
+	
+	        if ($conn->error) $errormsg = "Impossibile eseguire la query: " . $sqlInsertEmailCheck . " - Errore: " . $conn->error . PHP_EOL;
+	
+	    }
+    
     }
 
-    $msg .= "Effettuati {$quanti} inserimenti nelle tabelle troncate";
+    echo $msg .= "Effettuati {$quanti} inserimenti nelle tabelle troncate";
 
 } catch (Exception $e) {
-    $errormsg .= "Errore di chiamata della API si SendinBlue AccountApi->getContactsFromList: " . $e->getMessage();
+    echo $errormsg .= "Errore di chiamata della API si SendinBlue AccountApi->getContactsFromList: " . $e->getMessage();
 }
 
 //log ed email errore

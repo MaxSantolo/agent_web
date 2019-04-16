@@ -41,14 +41,14 @@ try {
                             'listIds'=>array(14),
                             'updateEnabled'=>TRUE
                             );
-
+	// print_r($array_user);
         $crea_contatto = new \SendinBlue\Client\Model\CreateContact($array_user);
         $apiInstance->createContact($crea_contatto);
 
     }
 
 } catch (Exception $e) {
-    $errormsg .= "Errore di chiamata della API si SendinBlue AccountApi->createContact: " . $e->getMessage();
+    echo $errormsg .= "Errore di chiamata della API si SendinBlue AccountApi->createContact: " . $e->getMessage();
 }
 
 //log ed email errore

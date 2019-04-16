@@ -26,7 +26,7 @@ $apiInstance = new SendinBlue\Client\Api\ContactsApi (
 
 //echo $return = $plog->sendLog(array("app"=>"AGENT","description"=>"pirulo","content"=>"paperino"));
 
-$url = "http://213.215.209.158:97/";
+$url = "http://213.215.209.158:97/API/create_log.php?app=agent&content=test";
 header("Location: {$url}");
 
 
