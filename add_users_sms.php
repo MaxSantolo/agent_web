@@ -40,21 +40,17 @@ $volte = ($quanti / 500) + 1;
 		$result = $apiInstance->getContactsFromList(14,"2000-01-01T19:20:30+01:00",500,$c*500)->getContacts();
 	
 	    for ($i=0;$i<$quanti;++$i) {
-	
-	        
+
 	        $add_mail = str_replace("'", '', $result[$i]['email']);
 	        $sms_optout = $result[$i]['smsBlacklisted'];
 	        $add_sms = $result[$i]['attributes']->SMS;
-	        $add_nome = $result[$i]['attributes']->NOME;
-	        $add_cognome = $result[$i]['attributes']->SURNAME;
-	
+	        $add_nome = mysqli_real_escape_string($conn,$result[$i]['attributes']->NOME);
+	        $add_cognome = mysqli_real_escape_string($conn,$result[$i]['attributes']->SURNAME);
 	        $sqlInsertSMSSub = "INSERT INTO sms_subs (email, smsbl, nome, cognome, SMS) VALUES ('".$add_mail."', '".$add_optout."', '".$add_nome."', '".$add_cognome."', '".$add_sms."')";
 	        $conn->query($sqlInsertSMSSub);
-	
 	        if ($conn->error) $errormsg = "Impossibile eseguire la query: " . $sqlInsertEmailCheck . " - Errore: " . $conn->error . PHP_EOL;
 	
 	    }
-    
     }
 
     echo $msg .= "Effettuati {$quanti} inserimenti nelle tabelle troncate";
@@ -66,7 +62,6 @@ $volte = ($quanti / 500) + 1;
 //log ed email errore
 
 if ($errormsg == "") {
-
 
     $msg = json_encode($msg);
     Log::wLog("Elenchi di numeri di telefono rigenerati. Totale: {$quanti} inserimenti.");

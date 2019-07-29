@@ -1,0 +1,40 @@
+ Il volume nell'unit… D Š Data
+ Numero di serie del volume: 4411-F868
+
+ Directory di D:\PhpstormProjects\AgentWeb
+
+24/05/2019  11:55    <DIR>          .
+24/05/2019  11:55    <DIR>          ..
+16/04/2019  10:09                16 .gitignore
+16/04/2019  10:09                 0 .htaccess
+09/05/2019  17:08    <DIR>          .idea
+16/04/2019  10:09                73 .user.ini
+16/04/2019  10:09                 0 5029448581761993.php
+16/04/2019  10:09             2.101 add_campaigns.php
+16/04/2019  10:09             3.949 add_users.php
+16/04/2019  10:09             2.976 add_users_sms.php
+16/04/2019  10:09             2.211 add_user_stateclick.php
+16/04/2019  10:09             1.667 add_user_stateopen.php
+16/04/2019  10:09             1.840 add_user_stateoptout.php
+16/04/2019  10:09             1.596 add_user_states.php
+16/04/2019  10:09             1.674 add_user_statesent.php
+10/04/2019  12:26    <DIR>          aspnet_client
+16/04/2019  10:09             1.006 campagne.php
+10/04/2019  12:26    <DIR>          cgi-bin
+16/04/2019  10:09               205 composer.json
+16/04/2019  10:09            10.313 composer.lock
+16/04/2019  10:09             2.609 create_sms_users.php
+10/04/2019  12:26    <DIR>          css
+16/04/2019  10:09               508 curl_test.php
+16/04/2019  10:09             7.393 general.log
+10/04/2019  12:26    <DIR>          images
+16/04/2019  10:09               825 index.php
+16/04/2019  10:09               825 index_old.php
+24/05/2019  11:55                 0 listdir.txr
+10/04/2019  12:26    <DIR>          modules
+16/04/2019  10:09             9.944 php_errorlog
+11/04/2019  15:19    <DIR>          tech
+16/04/2019  10:09             2.126 test.php
+10/04/2019  12:26    <DIR>          vendor
+              23 File         53.857 byte
+              10 Directory  498.799.255.552 byte disponibili

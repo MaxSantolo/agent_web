@@ -33,8 +33,8 @@ try {
 
         $array_user = array('email'=>$upd_list_data['email'],
                             "attributes"=> array(
-                                                'NOME'=>$upd_list_data['nome'],
-                                                'SURNAME'=>$upd_list_data['cognome'],
+                                                'NOME'=>mysqli_real_escape_string($conn,$upd_list_data['nome']),
+                                                'SURNAME'=>mysqli_real_escape_string($conn,$upd_list_data['cognome']),
                                                 'SMS'=>$upd_list_data['SMS'],
                                                 'FONTE_ORIGINARIA'=>$upd_list_data['origine']
                                             ),
