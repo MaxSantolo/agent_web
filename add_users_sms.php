@@ -31,11 +31,11 @@ try {
 // $result = $apiInstance->getContactsFromList(14,"2000-01-01T19:20:30+01:00",500)->getContacts();
 
 $quanti = $apiInstance->getContactsFromList(14)->getCount();
-$volte = ($quanti / 500) + 1;
+$volte = floor($quanti / 500) + 1;
 
 //$quanti = count($result);
 
-    for ($c=0;$c<=$volte;$c++) {
+    for ($c=0;$c<$volte;$c++) {
 
 		$result = $apiInstance->getContactsFromList(14,"2000-01-01T19:20:30+01:00",500,$c*500)->getContacts();
 	

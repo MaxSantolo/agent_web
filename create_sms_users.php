@@ -31,10 +31,14 @@ try {
 
     while ($upd_list_data = $upd_list->fetch_assoc()) {
 
+        $escname = mysqli_real_escape_string($conn,$upd_list_data['nome']);
+        $esclastname = mysqli_real_escape_string($conn,$upd_list_data['cognome']);
+
+
         $array_user = array('email'=>$upd_list_data['email'],
                             "attributes"=> array(
-                                                'NOME'=>mysqli_real_escape_string($conn,$upd_list_data['nome']),
-                                                'SURNAME'=>mysqli_real_escape_string($conn,$upd_list_data['cognome']),
+                                                'NOME'=>$escname,
+                                                'SURNAME'=>$esclastname,
                                                 'SMS'=>$upd_list_data['SMS'],
                                                 'FONTE_ORIGINARIA'=>$upd_list_data['origine']
                                             ),
@@ -45,10 +49,11 @@ try {
         $crea_contatto = new \SendinBlue\Client\Model\CreateContact($array_user);
         $apiInstance->createContact($crea_contatto);
 
+
     }
 
 } catch (Exception $e) {
-    echo $errormsg .= "Errore di chiamata della API si SendinBlue AccountApi->createContact: " . $e->getMessage();
+    echo $errormsg .= "Errore di chiamata della API di SendinBlue AccountApi->createContact: " . $e->getMessage();
 }
 
 //log ed email errore
@@ -62,7 +67,7 @@ if ($errormsg == "") {
 } else {
 
     $errormsg = json_encode($errormsg);
-    $smail = $mail->sendErrorEmail($errormsg,"AZN: SMS_SENDINBLUE");
+    //$smail = $mail->sendErrorEmail($errormsg,"AZN: SMS_SENDINBLUE");
     Log::wLog($errormsg);
     $url = "?app=AGENT&content={$errormsg}&action=SMS_CRM_SENDINBLUE";
 }
